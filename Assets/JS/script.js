@@ -7,29 +7,32 @@ var choicesEl = document.querySelector('.choices')
 
 var quizQuestions = [
     {
-      question: "What is the capital of France?",
-      choices: ["Berlin", "Paris", "London", "Madrid"],
-      answer: "Paris"
+      // add question below
+      question: "",
+      //create an array of answers for selection buttons
+      choices: [""],
+      //input the answer from one of the selections in the array
+      answer: ""
     },
     {
-      question: "Which planet is known as the 'Red Planet'?",
-      choices: ["Mars", "Venus", "Jupiter", "Saturn"],
-      answer: "Mars"
+      question: "",
+      choices: [""],
+      answer: ""
     },
     {
-      question: "What is the largest mammal in the world?",
-      choices: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
-      answer: "Blue Whale"
+      question: "",
+      choices: [""],
+      answer: ""
     },
     {
-      question: "Who wrote 'Romeo and Juliet'?",
-      choices: ["William Shakespeare", "Jane Austen", "Charles Dickens", "Mark Twain"],
-      answer: "William Shakespeare"
+      question: "",
+      choices: [""],
+      answer: ""
     },
     {
-      question: "What is the powerhouse of the cell?",
-      choices: ["Nucleus", "Mitochondria", "Endoplasmic Reticulum", "Ribosome"],
-      answer: "Mitochondria"
+      question: "",
+      choices: [""],
+      answer: ""
     }
   ];
 
