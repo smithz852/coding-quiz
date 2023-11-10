@@ -1,0 +1,21 @@
+.hide {
+    display: none;
+}
+
+.choiceStyle {
+    padding: .5rem;
+    border-radius: 5px;
+    list-style: none;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    max-width: 20rem;
+}
+
+.choiceStyle:hover {
+    cursor: pointer;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
