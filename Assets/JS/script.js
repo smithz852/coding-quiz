@@ -8,11 +8,11 @@ var choicesEl = document.querySelector('.choices')
 var quizQuestions = [
     {
       // add question below
-      question: "",
+      question: "Testing this question?",
       //create an array of answers for selection buttons
-      choices: [""],
+      choices: ["1", '2', '3', '4', '5'],
       //input the answer from one of the selections in the array
-      answer: ""
+      answer: "2"
     },
     {
       question: "",
