@@ -25,19 +25,19 @@ var quizQuestions = [
       answer: "3"
     },
     {
-      question: "",
-      choices: [""],
-      answer: ""
+      question: "test 3",
+      choices: ["1"],
+      answer: "1"
     },
     {
-      question: "",
-      choices: [""],
-      answer: ""
+      question: "test 4",
+      choices: ["4"],
+      answer: "4"
     },
     {
-      question: "",
-      choices: [""],
-      answer: ""
+      question: "test 5",
+      choices: ["5"],
+      answer: "5"
     }
   ];
 
@@ -69,7 +69,6 @@ var answerChoices = quizQuestions[questionIndex].choices
 
 function renderQuestions() {
  questionsEl.textContent = quizQuestions[questionIndex].question
- 
  var choicesContainer = '';
  for (var i = 0; i < answerChoices.length; i++) {
     choicesContainer += `<li class = 'choiceStyle'>${answerChoices[i]}</li>`
@@ -85,9 +84,12 @@ function questionSubmit() {
     } else {
       wrong.classList.remove('hide')
     }
+     renderQuestions();
     }
 
-
+function nextQuestion() {
+  renderQuestions();
+}
 
 
  
@@ -104,3 +106,8 @@ function questionSubmit() {
     localStorage.setItem('choice', choice);
     questionSubmit();
   }, {once : true});
+
+  nextButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    renderQuestions();
+  })
