@@ -84,16 +84,11 @@ function questionSubmit() {
     } else {
       wrong.classList.remove('hide')
     }
-     renderQuestions();
     }
 
 function nextQuestion() {
   renderQuestions();
 }
-
-
- 
-
 
   quizButton.addEventListener('click', function(event){
    event.preventDefault();
@@ -109,5 +104,5 @@ function nextQuestion() {
 
   nextButton.addEventListener('click', function(event) {
     event.preventDefault();
-    renderQuestions();
+    nextQuestion();
   })
