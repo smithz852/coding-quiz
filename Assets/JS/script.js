@@ -11,35 +11,40 @@ var right = document.querySelector('.right')
 var wrong = document.querySelector('.wrong')
 
 var quizQuestions = [
-    {
-      // add question below
-      question: "Testing this question?",
-      //create an array of answers for selection buttons
-      choices: ["1", "2", '3', '4', '5'],
-      //input the answer from one of the selections in the array
-      answer: "2"
-    },
-    {
-      question: "Question 2?",
-      choices: ["1", '2', '3'],
-      answer: "3"
-    },
-    {
-      question: "test 3",
-      choices: ["1"],
-      answer: "1"
-    },
-    {
-      question: "test 4",
-      choices: ["4"],
-      answer: "4"
-    },
-    {
-      question: "test 5",
-      choices: ["5"],
-      answer: "5"
-    }
-  ];
+  {
+    question: "Commonly used data types DO NOT include:",
+    choices: ["strings", "booleans", "alerts", "numbers"],
+    answer: "alerts",
+  },
+  {
+    question:
+      "The condition in an if / else statement is enclosed within ____.",
+    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+    answer: "parentheses",
+  },
+  {
+    question: "Arrays in JavaScript can be used to store ____.",
+    choices: [
+      "numbers and strings",
+      "other arrays",
+      "booleans",
+      "all of the above",
+    ],
+    answer: "all of the above",
+  },
+  {
+    question:
+      "String values must be enclosed within ____ when being assigned to variables.",
+    choices: ["commas", "curly brackets", "quotes", "parentheses"],
+    answer: "quotes",
+  },
+  {
+    question:
+      "A very useful tool used during development and debugging for printing content to the debugger is:",
+    choices: ["JavaScript", "terminal / bash", "for loops", "console.log"],
+    answer: "console.log",
+  },
+];
 
   var questionIndex = 0
 
@@ -65,35 +70,34 @@ function startTime() {
  }, 1000);
 }
 
-var answerChoices = quizQuestions[questionIndex].choices
+// var answerChoices = quizQuestions[questionIndex].choices
 
 function renderQuestions() {
- questionsEl.textContent = quizQuestions[questionIndex].question
- var choicesContainer = '';
- for (var i = 0; i < answerChoices.length; i++) {
-    choicesContainer += `<li class = 'choiceStyle'>${answerChoices[i]}</li>`
-    choicesEl.innerHTML = choicesContainer
- }
+  var answerChoices = quizQuestions[questionIndex].choices;
+  questionsEl.textContent = quizQuestions[questionIndex].question;
+  var choicesContainer = "";
+  for (var i = 0; i < answerChoices.length; i++) {
+    choicesContainer += `<li class = 'choiceStyle'>${answerChoices[i]}</li>`;
+    choicesEl.innerHTML = choicesContainer;
+  }
 }
 
 function questionSubmit() {
-  var choice = localStorage.getItem('choice')
+  var choice = localStorage.getItem("choice");
   console.log(choice);
-   if ( choice === quizQuestions[questionIndex].answer) {
-      right.classList.remove('hide');
-    } else {
-      wrong.classList.remove('hide')
-    }
-     renderQuestions();
-    }
-
-function nextQuestion() {
+  if (choice === quizQuestions[questionIndex].answer) {
+    right.classList.remove("hide");
+  } else {
+    wrong.classList.remove("hide");
+  }
+  questionIndex++;
   renderQuestions();
 }
 
-
- 
-
+// function nextQuestion() {
+//   questionIndex++;
+//   renderQuestions();
+// }
 
   quizButton.addEventListener('click', function(event){
    event.preventDefault();
@@ -105,9 +109,9 @@ function nextQuestion() {
     var choice = event.target.textContent
     localStorage.setItem('choice', choice);
     questionSubmit();
-  }, {once : true});
+  });
 
-  nextButton.addEventListener('click', function(event) {
-    event.preventDefault();
-    renderQuestions();
-  })
+  // nextButton.addEventListener('click', function(event) {
+  //   event.preventDefault();
+  //   nextQuestion();
+  // });
