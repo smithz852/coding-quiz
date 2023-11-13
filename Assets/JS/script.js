@@ -105,7 +105,6 @@ function questionSubmit() {
   console.log(choice);
   if (choice === quizQuestions[questionIndex].answer) {
     right.classList.remove("hide");
-    
   } else {
     wrong.classList.remove("hide");
     time = time - 5;
@@ -118,9 +117,7 @@ function questionSubmit() {
     right.classList.add('hide')
     wrong.classList.add('hide')
   }, 1500)
-  
- 
-}
+};
 
 
 // Hide button after quiz start
