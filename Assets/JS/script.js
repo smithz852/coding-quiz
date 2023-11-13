@@ -94,10 +94,7 @@ function questionSubmit() {
   renderQuestions();
 }
 
-// function nextQuestion() {
-//   questionIndex++;
-//   renderQuestions();
-// }
+
 
   quizButton.addEventListener('click', function(event){
    event.preventDefault();
@@ -111,7 +108,3 @@ function questionSubmit() {
     questionSubmit();
   });
 
-  // nextButton.addEventListener('click', function(event) {
-  //   event.preventDefault();
-  //   nextQuestion();
-  // });
