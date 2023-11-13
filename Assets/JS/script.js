@@ -56,7 +56,8 @@ function startQuiz() {
 }
 
 var timeInterval;
-var time = 100;
+var time = 30;
+var score = 0
 
 function startTime() {
 //  var timer = setInterval(timeInterval);
@@ -66,8 +67,25 @@ function startTime() {
     if (time < 0) {
         clearInterval(timeInterval);
         // eventually write out a function call for end quiz
+        console.log(localStorage.getItem('score')); //convert this to a number that pops up on the page later
     }
  }, 1000);
+  totalScore();
+}
+
+function totalScore() {
+ var choice = localStorage.getItem("choice");
+  console.log(choice);
+  if (choice === quizQuestions[questionIndex].answer) {
+    score = score + 10;
+  } else {
+    score = score + 0;
+  }
+ var addScore = localStorage.setItem('score', score);
+ var getScore = localStorage.getItem('score');
+ var currentScore =['']
+currentScore.push(getScore)
+console.log(currentScore);
 }
 
 // var answerChoices = quizQuestions[questionIndex].choices
@@ -87,31 +105,34 @@ function questionSubmit() {
   console.log(choice);
   if (choice === quizQuestions[questionIndex].answer) {
     right.classList.remove("hide");
+    
   } else {
     wrong.classList.remove("hide");
+    time = time - 5;
   }
-  questionIndex++;
-  renderQuestions();
+  setTimeout( function() {
+    questionIndex++;
+    renderQuestions();
+  })
+  setTimeout( function() {
+    right.classList.add('hide')
+    wrong.classList.add('hide')
+  }, 1500)
+  
+ 
 }
 
-// function nextQuestion() {
-//   questionIndex++;
-//   renderQuestions();
-// }
 
+// Hide button after quiz start
   quizButton.addEventListener('click', function(event){
    event.preventDefault();
    startQuiz();
-  })
+  });
 
   choicesEl.addEventListener('click', function select(event) {
-    // event.preventDefault();
     var choice = event.target.textContent
     localStorage.setItem('choice', choice);
     questionSubmit();
+    totalScore();
   });
 
-  // nextButton.addEventListener('click', function(event) {
-  //   event.preventDefault();
-  //   nextQuestion();
-  // });
