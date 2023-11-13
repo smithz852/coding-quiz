@@ -4,7 +4,6 @@ var quizButton = document.querySelector('#quizButton')
 var quiz = document.querySelector('.quiz')
 var questionsEl = document.querySelector('.questions')
 var choicesEl = document.querySelector('.choices')
-var nextButton = document.querySelector('.nextButton')
 
 //New variables to test
 var right = document.querySelector('.right')
@@ -44,6 +43,12 @@ var quizQuestions = [
     choices: ["JavaScript", "terminal / bash", "for loops", "console.log"],
     answer: "console.log",
   },
+  {
+    question:
+      "A very useful tool used during development and debugging for printing content to the debugger is:",
+    choices: ["JavaScript", "terminal / bash", "for loops", "console.log"],
+    answer: "console.log",
+  },
 ];
 
   var questionIndex = 0
@@ -51,6 +56,7 @@ var quizQuestions = [
 function startQuiz() {
  startingMsg.classList.add('hide')
  quiz.classList.remove('hide')
+quizButton.classList.add('hide')
  startTime();
  renderQuestions();
 }
@@ -67,7 +73,8 @@ function startTime() {
     if (time < 0) {
         clearInterval(timeInterval);
         // eventually write out a function call for end quiz
-        console.log(localStorage.getItem('score')); //convert this to a number that pops up on the page later
+        // console.log(localStorage.getItem('score'));
+        quizEnd();
     }
  }, 1000);
   totalScore();
@@ -118,6 +125,11 @@ function questionSubmit() {
     wrong.classList.add('hide')
   }, 1500)
 };
+
+function quizEnd() {
+  quiz.classList.add('hide');
+  timeElement.classList.add('hide');
+}
 
 
 // Hide button after quiz start
