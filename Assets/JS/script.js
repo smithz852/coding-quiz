@@ -13,6 +13,7 @@ var right = document.querySelector('.right')
 var wrong = document.querySelector('.wrong')
 var initialList = document.querySelector('.initialList')
 var scoreList = document.querySelector('.scoreList')
+var retakeButton = document.querySelector('#retakeButton')
 
 var highScoreArray = [];
 
@@ -72,15 +73,15 @@ if (time !== 0) {
 }
 
 var timeInterval;
-var time = 30;
+var time = 100;
 var score = 0
 
 function quizReset() {
-  time = 30;
+  time = 100;
   score = 0
   questionIndex = 0
   timeElement.classList.remove('hide');
-
+  viewScores.classList.add('hide')
 }
 
 function startTime() {
@@ -140,7 +141,7 @@ function questionSubmit() {
   } else {
     wrong.classList.remove("hide");
     right.classList.add("hide");
-    time = time - 5;
+    time = time - 10;
   }
   setTimeout( function() {
     questionIndex++;
@@ -207,11 +208,7 @@ for(var i = 0; i < highScoreArray.length; i++) {
     scoreList.innerHTML = scoreContainer;
   }
 }
-
-
- quizButton.classList.remove('hide')
-
-}
+};
 
   quizButton.addEventListener('click', function(event){
    event.preventDefault();
@@ -231,5 +228,10 @@ for(var i = 0; i < highScoreArray.length; i++) {
   saveName();
   scoreBoard();
  }
- )
+ );
+
+ retakeButton.addEventListener('click', function(event){
+  event.preventDefault();
+  startQuiz();
+ });
 
