@@ -64,6 +64,9 @@ function startQuiz() {
  startingMsg.classList.add('hide')
  quiz.classList.remove('hide')
 quizButton.classList.add('hide')
+if (time !== 0) {
+  quizReset();
+}
  startTime();
  renderQuestions();
 }
@@ -71,6 +74,14 @@ quizButton.classList.add('hide')
 var timeInterval;
 var time = 30;
 var score = 0
+
+function quizReset() {
+  time = 30;
+  score = 0
+  questionIndex = 0
+  timeElement.classList.remove('hide');
+
+}
 
 function startTime() {
 //  var timer = setInterval(timeInterval);
@@ -184,7 +195,7 @@ console.log(highScoreList);
  document.querySelector('.initialList').innerHTML = highScoreArray[1];
 
 
-//  quizButton.classList.remove('hide')
+ quizButton.classList.remove('hide')
 
 }
 
@@ -207,3 +218,4 @@ console.log(highScoreList);
   scoreBoard();
  }
  )
+
