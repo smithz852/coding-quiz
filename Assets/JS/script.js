@@ -136,8 +136,10 @@ function questionSubmit() {
   console.log(choice);
   if (choice === quizQuestions[questionIndex].answer) {
     right.classList.remove("hide");
+    wrong.classList.add("hide");
   } else {
     wrong.classList.remove("hide");
+    right.classList.add("hide");
     time = time - 5;
   }
   setTimeout( function() {
@@ -147,7 +149,7 @@ function questionSubmit() {
   setTimeout( function() {
     right.classList.add('hide')
     wrong.classList.add('hide')
-  }, 1500)
+  }, 3000)
 };
 
 function quizEnd() {
