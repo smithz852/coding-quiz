@@ -106,7 +106,7 @@ function totalScore() {
   } else {
     score = score + 0;
   }
- var addScore = ''
+ var addScore = '';
  addScore = localStorage.setItem('score', score);
  var getScore = localStorage.getItem('score');
  var currentScore =['']
@@ -191,8 +191,20 @@ console.log(highScoreList);
 
  console.log(highScoreArray);
 
- document.querySelector('.scoreList').innerHTML = highScoreArray[0];
- document.querySelector('.initialList').innerHTML = highScoreArray[1];
+ var listContainer = ''
+var scoreContainer = ''
+ 
+for(var i = 0; i < highScoreArray.length; i += 2) {
+  listContainer += `<li>${highScoreArray[i]}</li>`;
+    initialList.innerHTML = listContainer;
+}
+
+for(var i = 0; i < highScoreArray.length; i++) {
+  if (i % 2 !== 0) {
+  scoreContainer += `<li>${highScoreArray[i]}</li>`;
+    scoreList.innerHTML = scoreContainer;
+  }
+}
 
 
  quizButton.classList.remove('hide')
