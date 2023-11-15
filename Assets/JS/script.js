@@ -149,6 +149,7 @@ function quizEnd() {
 function enterScore() {
  scoreEnter.classList.remove('hide')
 }
+
  // storing scores and names
 function saveName() {
   var scoreStore = {
@@ -156,12 +157,13 @@ function saveName() {
     score,
   }
 
-  localStorage.setItem('scoreStore', JSON.stringify(scoreStore));
-console.log(scoreStore)
   if (initials.value === '') {
      errorMsg.classList.remove('hide')
      scoreEnter.classList.remove('hide')
      viewScores.classList.add('hide')
+  } else {
+    viewScores.classList.remove('hide')
+    localStorage.setItem('scoreStore', JSON.stringify(scoreStore));
   }
 }
 
@@ -170,21 +172,21 @@ function finalScore() {
 }
 
 function scoreBoard() {
-  viewScores.classList.remove('hide')
 
  var highScoreList = JSON.parse(localStorage.getItem('scoreStore'));
-console.log(highScoreList)
+console.log(highScoreList);
  highScoreArray.push(highScoreList.initials);
  highScoreArray.push(highScoreList.score);
 
  console.log(highScoreArray);
 
- document.querySelector('.scoreList').innerHTML = highScoreArray;
+ document.querySelector('.scoreList').innerHTML = highScoreArray[0];
+ document.querySelector('.initialList').innerHTML = highScoreArray[1];
 
- quizButton.classList.remove('hide')
+
+//  quizButton.classList.remove('hide')
 
 }
-
 
   quizButton.addEventListener('click', function(event){
    event.preventDefault();
@@ -200,8 +202,8 @@ console.log(highScoreList)
 
 
   submitScore.addEventListener('click', function(event) {
+  scoreEnter.classList.add('hide')
   saveName();
   scoreBoard();
-  scoreEnter.classList.add('hide')
  }
  )
