@@ -4,10 +4,17 @@ var quizButton = document.querySelector('#quizButton')
 var quiz = document.querySelector('.quiz')
 var questionsEl = document.querySelector('.questions')
 var choicesEl = document.querySelector('.choices')
-
-//New variables to test
+var scoreEnter = document.querySelector('.enterScore')
+var submitScore = document.querySelector('.submitScore')
+var initials = document.querySelector('.initials')
+var viewScores = document.querySelector('.highScoreContainer')
+var errorMsg = document.querySelector('.errorMsg')
 var right = document.querySelector('.right')
 var wrong = document.querySelector('.wrong')
+var initialList = document.querySelector('.initialList')
+var scoreList = document.querySelector('.scoreList')
+
+var highScoreArray = [];
 
 var quizQuestions = [
   {
@@ -71,10 +78,10 @@ function startTime() {
     timeElement.textContent = 'Time: ' + time
     time --;
     if (time < 0) {
-        clearInterval(timeInterval);
-        // eventually write out a function call for end quiz
-        // console.log(localStorage.getItem('score'));
         quizEnd();
+    } else if (questionIndex >= 5) {
+      quizEnd();
+      clearInterval(timeInterval);
     }
  }, 1000);
   totalScore();
@@ -88,7 +95,8 @@ function totalScore() {
   } else {
     score = score + 0;
   }
- var addScore = localStorage.setItem('score', score);
+ var addScore = ''
+ addScore = localStorage.setItem('score', score);
  var getScore = localStorage.getItem('score');
  var currentScore =['']
 currentScore.push(getScore)
@@ -104,6 +112,11 @@ function renderQuestions() {
   for (var i = 0; i < answerChoices.length; i++) {
     choicesContainer += `<li class = 'choiceStyle'>${answerChoices[i]}</li>`;
     choicesEl.innerHTML = choicesContainer;
+  }
+  if (questionIndex >= 5) {
+    quizEnd();
+    right.classList.add('hide')
+    wrong.classList.add('hide')
   }
 }
 
@@ -129,10 +142,50 @@ function questionSubmit() {
 function quizEnd() {
   quiz.classList.add('hide');
   timeElement.classList.add('hide');
+  enterScore(); 
+  finalScore();
+}
+
+function enterScore() {
+ scoreEnter.classList.remove('hide')
+}
+ // storing scores and names
+function saveName() {
+  var scoreStore = {
+    initials: initials.value,
+    score,
+  }
+
+  localStorage.setItem('scoreStore', JSON.stringify(scoreStore));
+console.log(scoreStore)
+  if (initials.value === '') {
+     errorMsg.classList.remove('hide')
+     scoreEnter.classList.remove('hide')
+     viewScores.classList.add('hide')
+  }
+}
+
+function finalScore() {
+ document.querySelector('#printScore').innerHTML = 'Final Score: ' + score;
+}
+
+function scoreBoard() {
+  viewScores.classList.remove('hide')
+
+ var highScoreList = JSON.parse(localStorage.getItem('scoreStore'));
+console.log(highScoreList)
+ highScoreArray.push(highScoreList.initials);
+ highScoreArray.push(highScoreList.score);
+
+ console.log(highScoreArray);
+
+ document.querySelector('.scoreList').innerHTML = highScoreArray;
+
+ quizButton.classList.remove('hide')
+
 }
 
 
-// Hide button after quiz start
   quizButton.addEventListener('click', function(event){
    event.preventDefault();
    startQuiz();
@@ -145,3 +198,10 @@ function quizEnd() {
     totalScore();
   });
 
+
+  submitScore.addEventListener('click', function(event) {
+  saveName();
+  scoreBoard();
+  scoreEnter.classList.add('hide')
+ }
+ )

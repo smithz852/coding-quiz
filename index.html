@@ -30,8 +30,18 @@
             <h4 class="wrong hide">Fail!</h4>
         </div>
     </section>
-    <section>
-        <!-- start last section with page saying the test has ended and page displaying high scores-->
+    <section class="enterScore hide">
+        <h2>Congrats!</h2>
+        <p id="printScore">Final score:</p>
+        <p >Enter Initials: <input class="initials" type="text" placeholder="Enter Initials"></p>
+        <p class="errorMsg hide">Error: Please Enter Initials</p>
+        <button class="submitScore">Submit</button>
+    </section>
+    <section class="highScoreContainer hide">
+        <h2>High Scores:</h2>
+        <ol class="scoreList">
+
+        </ol>
     </section>
     <script src="./Assets/JS/script.js">
 
