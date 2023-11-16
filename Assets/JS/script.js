@@ -80,12 +80,12 @@ if (time !== 0) {
 }
 
 var timeInterval;
-var time = 100;
+var time = 20;
 var score = 0
 
 // Restore time and score values for retaking quiz as well as default content
 function quizReset() {
-  time = 100;
+  time = 20;
   score = 0
   questionIndex = 0
   timeElement.classList.remove('hide');
@@ -101,6 +101,7 @@ function startTime() {
     time --;
     if (time < 0) {
         quizEnd();
+        clearInterval(timeInterval)
     } else if (questionIndex >= 5) {
       quizEnd();
       clearInterval(timeInterval);
