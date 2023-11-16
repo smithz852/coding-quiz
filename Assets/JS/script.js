@@ -20,6 +20,7 @@ var highScoreButton = document.querySelector('#scorePage')
 
 var highScoreArray = [];
 
+
 var quizQuestions = [
   {
     question: "Commonly used data types DO NOT include:",
@@ -86,10 +87,11 @@ function quizReset() {
   questionIndex = 0
   timeElement.classList.remove('hide');
   viewScores.classList.add('hide')
+  startingMsg.classList.remove('hide')
+  errorMsg.classList.add('hide')
 }
 
 function startTime() {
-//  var timer = setInterval(timeInterval);
  timeInterval = setInterval( function() {
     timeElement.textContent = 'Time: ' + time
     time --;
@@ -119,7 +121,6 @@ currentScore.push(getScore)
 console.log(currentScore);
 }
 
-// var answerChoices = quizQuestions[questionIndex].choices
 
 function renderQuestions() {
   var answerChoices = quizQuestions[questionIndex].choices;
@@ -183,6 +184,7 @@ function saveName() {
   } else {
     viewScores.classList.remove('hide')
     localStorage.setItem('scoreStore', JSON.stringify(scoreStore));
+    scoreBoard();
   }
 }
 
@@ -194,6 +196,8 @@ function scoreBoard() {
 
  var highScoreList = JSON.parse(localStorage.getItem('scoreStore'));
 console.log(highScoreList);
+
+
  highScoreArray.push(highScoreList.initials);
  highScoreArray.push(highScoreList.score);
 
@@ -220,8 +224,18 @@ function home() {
  quiz.classList.add('hide')
 quizButton.classList.remove('hide')
 startDisplay.classList.remove('hide')
+highScoreButton.classList.remove('hide')
 timeElement.textContent = 'Time: 100'
 quizReset();
+}
+
+function scoreDirect() {
+  viewScores.classList.remove('hide')
+  startingMsg.classList.add('hide')
+  highScoreButton.classList.remove('hide')
+ quiz.classList.add('hide')
+quizButton.classList.add('hide')
+startDisplay.classList.add('hide')
 }
 
   quizButton.addEventListener('click', function(event){
@@ -240,7 +254,6 @@ quizReset();
   submitScore.addEventListener('click', function(event) {
   scoreEnter.classList.add('hide')
   saveName();
-  scoreBoard();
  }
  );
 
@@ -254,5 +267,7 @@ quizReset();
   home();
  });
 
- //add high score page button for home page
-
+ highScoreButton.addEventListener('click', function(event){
+  event.preventDefault();
+  scoreDirect();
+ });
