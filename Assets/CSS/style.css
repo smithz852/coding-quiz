@@ -1,3 +1,7 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
 h5 {
     margin-top: 0;
     font-size: 13pt;
@@ -168,6 +172,11 @@ justify-items: end;
   align-self: center;
 }
 
+.submitScore:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
 .endTest {
     font-size: 17pt;
 }
@@ -178,8 +187,9 @@ justify-items: end;
 }
 
 .scoreTitle {
-  text-decoration: underline;
+  text-decoration: underline black;
   text-align: center;
+  color: rgb(94, 94, 223) ;
 }
 
 .scoreLog {
@@ -192,14 +202,18 @@ justify-items: end;
 .scoreLi {
     border: 3px solid black;
     margin-top: 5px; 
+    background-color: rgb(94, 94, 223);
+    color: white;
 }
 
 .initialLi {
     border-right: 0;
+    padding-left: 1%;
 }
 
 .scoreLiAdj {
     border-left: 0;
+    padding-right: 1%;
 }
 
 #retakeButton {
@@ -215,6 +229,11 @@ justify-items: end;
   transition: 0.3s;
 }
 
+#retakeButton:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
 #homePage {
     border: 2px;
     padding: 1%;
@@ -226,6 +245,11 @@ justify-items: end;
     color: white;
     opacity: 0.7;
   transition: 0.3s;
+}
+
+#homePage:hover {
+    cursor: pointer;
+    opacity: 1;
 }
 
 .score-display {
