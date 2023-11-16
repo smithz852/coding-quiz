@@ -1,54 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Assets/CSS/style.css">
-    <title>Document</title>
-</head>
-<body>
-    <section class="startingMsg">
-        <p>Welcome to the quiz</p>
-    </section>
-    <section>
-        <div>
-            <span class="timeElement">
-                Time: 100
-            </span>
-            <button id="quizButton">Start</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./Assets/CSS/style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <section class="startingMsg">
+            <div class="flex-top">
+                <h5 id="scorePage">High Scores</h5>
+                <span class="timeElement"> Time: 100</span>
+            </div>
+        </section>
+        <section>
+            <div class="start-display">
+                <h2>Coding Quiz Challenge</h2>
+                <p id="quiz-descr">Test your coding knowledge! Complete the test before time runs out.</p>
+                <button id="quizButton">Start</button>
+            </div>
+            <div class="quiz">
+                <div class=" hide quiz-flex">
+                    <div class="questions"></div>
+                    <div>
+                        <ul class="choices"></ul>
+                        <div>
+                            <h4 class="right hide" style="color: rgb(5, 128, 5);">Correct!</h4>
+                            <h4 class="wrong hide" style="color: rgb(238, 3, 3);">Wrong!</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="enterScore hide end-display">
+            <div class="submit-flex">
+                <div class="flex-left">
+                    <h2>Congrats!</h2>
+                </div>
+                <div class="flex-left endTest">
+                    <p id="printScore">Final score:</p>
+                </div>
+                <div class="flex-score endTest">
+                    <p>
+                        Enter Initials:
+                        <input class="initials" type="text" placeholder="Enter Initials">
+                    </p>
+                    <button class="submitScore">Submit</button>
+                </div>
+                <p class="errorMsg hide" style="color: red;">Error: Please Enter Initials</p>
+            </div>
+        </section>
+        <section class="highScoreContainer hide">
+            <h2 class="scoreTitle">High Scores</h2>
+            <div class="flex">
+            <ol class=" initialList  scoreLog"></ol>
+            <ol class="scoreList scoreLog"></ol>
         </div>
-        <div class="quiz hide">
-          <div class="questions">
-            
-          </div>
-          <ul class="choices">
-
-          </ul>
+         <div class="flex-button">
+            <button id="retakeButton">Try Again</button>
+            <button id="homePage">Home</button>
         </div>
-        <div>
-            <h4 class="right hide">Correct!</h4>
-            <h4 class="wrong hide">Fail!</h4>
-        </div>
-    </section>
-    <section class="enterScore hide">
-        <h2>Congrats!</h2>
-        <p id="printScore">Final score:</p>
-        <p >Enter Initials: <input class="initials" type="text" placeholder="Enter Initials"></p>
-        <p class="errorMsg hide">Error: Please Enter Initials</p>
-        <button class="submitScore">Submit</button>
-    </section>
-    <section class="highScoreContainer hide">
-        <h2>High Scores:</h2>
-        <ol class="scoreList">
-
-        </ol>
-        <ol class="initialList">
-
-        </ol>
-        <button id="retakeButton">Try Again</button>
-    </section>
-    <script src="./Assets/JS/script.js">
-
-    </script>
-</body>
+        </section>
+        <script src="./Assets/JS/script.js"></script>
+    </body>
 </html>
