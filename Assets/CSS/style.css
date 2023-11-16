@@ -273,7 +273,27 @@ justify-items: end;
 
 
 /* Media queries */
+
+@media screen and (max-width: 1400px) {
+    .submit-flex {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}
+
+@media screen and (max-width: 1085px) {
+    .submit-flex {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
 @media screen and (max-width: 768px) {
+    .submit-flex {
+        padding-left: 23%;
+        padding-right: 23%;
+    }
+
     .questions {
         font-size: 20pt;
         font-weight: bold;
