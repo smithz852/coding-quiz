@@ -1,7 +1,10 @@
+
+/* Sets font type for whole webpage */
 * {
     font-family: 'Courier New', Courier, monospace;
 }
 
+/* For high score page button */
 h5 {
     margin-top: 0;
     font-size: 13pt;
@@ -13,37 +16,39 @@ h5:hover {
     text-decoration: underline;
     cursor: pointer;
 }
-
+/* Right and wrong answer prompts */
 h4 {
     opacity: 0.6;
     border-top: 5px solid rgb(94, 94, 223);
     font-size: 17pt;
 }
-
+/* page titles */
 h2 {
     font-size: 30pt;
 }
-
+/* Title page description of quiz */
 #quiz-descr {
     font-size: 18pt;
 }
-
+/* for hiding content */
 .hide {
     display: none;
 }
 
+/* For time display countdown */
 .timeElement {
    font-size: 13pt;
    font-weight: bold;
 }
 
+/* For quiz questions */
 .questions {
     font-size: 25pt;
     font-weight: bold;
 }
 
 
-
+/* Specs for choices layout in quiz */
 .choiceStyle {
     padding: 20px;
     border-radius: 5px;
@@ -62,6 +67,7 @@ h2 {
     opacity: 1;
 }
 
+/* container for choices in quiz */
 .choices {
     display: flex;
     flex-direction: column;
@@ -71,24 +77,20 @@ h2 {
     padding-left: 0;
 }
 
-.scoreStyle {
-    padding: 20px;
-    border-radius: 5px;
-    list-style: none;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
-    max-width: 40%;
-}
-
+/* Container for top of home page */
 .flex-top {
     display: flex;
     padding: 3%;
     justify-content: end;
 }
+
+/* basic flex for high score page buttons */
 .flex {
     display: flex;
     justify-content: center;
 }
 
+/* flex container for quiz */
 .quiz-flex {
     display: flex;
     justify-content: start;
@@ -98,6 +100,7 @@ h2 {
     padding-bottom: 3%;
 }
 
+/* flex container for whole quiz completion text and buttons */
 .submit-flex {
     display: flex;
     justify-content: start;
@@ -107,39 +110,46 @@ h2 {
     padding-bottom: 3%;
 }
 
+/* flex container for initials submit form and button */
 .flex-score {
     display: flex;
     justify-content: start;
     gap: 30px;
 }
 
+/* Pushing content on completion page to the left */
 .flex-left {
     display: flex;
     justify-content: start;
 }
 
+/* container for buttons on high score page */
 .flex-button {
     display: flex;
     justify-content: space-evenly;
 }
 
+/* main page display */
 .start-display{
     text-align: center;
     padding: 15%;
     padding-top: 5%;
 }
 
+/* setting text content on score completion page */
 .end-display{
     text-align: center;
     padding: 10%;
     padding-top: 5%;
 }
 
+/* child flex setting for highscore button */
 #scorePage {
 flex: 1 0 0;
 justify-items: end;
 }
 
+/* Start button specs */
 #quizButton {
     border: 2px;
     padding: 1%;
@@ -158,6 +168,7 @@ justify-items: end;
     opacity: 1;
 }
 
+/* submit button specs */
 .submitScore {
     border: 2px;
     padding: 1%;
@@ -177,21 +188,25 @@ justify-items: end;
     opacity: 1;
 }
 
+/* Text size for completion page besides title */
 .endTest {
     font-size: 17pt;
 }
 
+/* Specs for initials form box */
 .initials {
     border: 3px solid rgb(94, 94, 223);
     font-size: 15pt;
 }
 
+/* Title for high score page */
 .scoreTitle {
   text-decoration: underline black;
   text-align: center;
   color: rgb(94, 94, 223) ;
 }
 
+/* page specs for both initial and final score lists */
 .scoreLog {
     list-style: none;
     font-size: 20pt;
@@ -199,23 +214,26 @@ justify-items: end;
     padding: 0;
 }
 
+/* color specs for list */
 .scoreLi {
     border: 3px solid black;
     margin-top: 5px; 
     background-color: rgb(94, 94, 223);
     color: white;
 }
-
+/* border adjustment for left initial list */
 .initialLi {
     border-right: 0;
     padding-left: 1%;
 }
 
+/* border adjustment for right score list */
 .scoreLiAdj {
     border-left: 0;
     padding-right: 1%;
 }
 
+/* try again button */
 #retakeButton {
     border: 2px;
     padding: 1%;
@@ -234,6 +252,7 @@ justify-items: end;
     opacity: 1;
 }
 
+/* home page button */
 #homePage {
     border: 2px;
     padding: 1%;
@@ -252,12 +271,8 @@ justify-items: end;
     opacity: 1;
 }
 
-.score-display {
-    text-align: center;
-    padding: 20%;
-    padding-top: 5%;
-}
 
+/* Media queries */
 @media screen and (max-width: 768px) {
     .questions {
         font-size: 20pt;
