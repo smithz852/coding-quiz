@@ -18,9 +18,10 @@ var retakeButton = document.querySelector('#retakeButton')
 var homePage = document.querySelector('#homePage')
 var highScoreButton = document.querySelector('#scorePage')
 
+//Array for storing initials and final scores
 var highScoreArray = [];
 
-
+// Array for quiz questions
 var quizQuestions = [
   {
     question: "Commonly used data types DO NOT include:",
@@ -65,6 +66,7 @@ var quizQuestions = [
 
   var questionIndex = 0
 
+  // Starts quiz
 function startQuiz() {
   highScoreButton.classList.add('hide')
  quiz.classList.remove('hide')
@@ -81,6 +83,7 @@ var timeInterval;
 var time = 100;
 var score = 0
 
+// Restore time and score values for retaking quiz as well as default content
 function quizReset() {
   time = 100;
   score = 0
@@ -91,6 +94,7 @@ function quizReset() {
   errorMsg.classList.add('hide')
 }
 
+//starts decreasing time
 function startTime() {
  timeInterval = setInterval( function() {
     timeElement.textContent = 'Time: ' + time
@@ -105,6 +109,7 @@ function startTime() {
   totalScore();
 }
 
+//Tracks score throughout quiz and stores it
 function totalScore() {
  var choice = localStorage.getItem("choice");
   console.log(choice);
@@ -121,7 +126,7 @@ currentScore.push(getScore)
 console.log(currentScore);
 }
 
-
+// Renders questions and choices sequentially
 function renderQuestions() {
   var answerChoices = quizQuestions[questionIndex].choices;
   questionsEl.textContent = quizQuestions[questionIndex].question;
@@ -137,6 +142,7 @@ function renderQuestions() {
   }
 }
 
+// Checks what was clicked against what the answer is per question
 function questionSubmit() {
   var choice = localStorage.getItem("choice");
   console.log(choice);
@@ -158,6 +164,7 @@ function questionSubmit() {
   }, 3000)
 };
 
+//Ends quiz, hides old content, and runs functions to render more content
 function quizEnd() {
   startingMsg.classList.add('hide')
   quiz.classList.add('hide');
@@ -165,7 +172,7 @@ function quizEnd() {
   enterScore(); 
   finalScore();
 }
-
+// Reveals completion page for the end of the quiz
 function enterScore() {
  scoreEnter.classList.remove('hide')
 }
@@ -188,10 +195,12 @@ function saveName() {
   }
 }
 
+// Prints final score on completion page
 function finalScore() {
  document.querySelector('#printScore').innerHTML = 'Final Score: ' + score;
 }
 
+//Sets initials and final score to high score page
 function scoreBoard() {
 
  var highScoreList = JSON.parse(localStorage.getItem('scoreStore'));
@@ -219,6 +228,7 @@ for(var i = 0; i < highScoreArray.length; i++) {
 }
 };
 
+//For clicking home button on high score page and resetting needed values/content
 function home() {
   startingMsg.classList.remove('hide')
  quiz.classList.add('hide')
@@ -228,7 +238,7 @@ highScoreButton.classList.remove('hide')
 timeElement.textContent = 'Time: 100'
 quizReset();
 }
-
+//Sets content for going directly from home page to high score page
 function scoreDirect() {
   viewScores.classList.remove('hide')
   startingMsg.classList.add('hide')
@@ -238,11 +248,13 @@ quizButton.classList.add('hide')
 startDisplay.classList.add('hide')
 }
 
+// To start the quiz
   quizButton.addEventListener('click', function(event){
    event.preventDefault();
    startQuiz();
   });
 
+  // To record choices clicked
   choicesEl.addEventListener('click', function select(event) {
     var choice = event.target.textContent
     localStorage.setItem('choice', choice);
@@ -250,23 +262,26 @@ startDisplay.classList.add('hide')
     totalScore();
   });
 
-
+//Submits initials input at end of quiz
   submitScore.addEventListener('click', function(event) {
   scoreEnter.classList.add('hide')
   saveName();
  }
  );
 
+ // Try again button from high score page
  retakeButton.addEventListener('click', function(event){
   event.preventDefault();
   startQuiz();
  });
 
+// Goes to home page from high score page
  homePage.addEventListener('click', function(event){
   event.preventDefault();
   home();
  });
 
+ // Goes directly to high score page
  highScoreButton.addEventListener('click', function(event){
   event.preventDefault();
   scoreDirect();
