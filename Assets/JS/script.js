@@ -243,7 +243,6 @@ startDisplay.classList.add('hide')
    startQuiz();
   });
 
-  //Make sure if nothing is clicked, it won't register questions as wrong.
   choicesEl.addEventListener('click', function select(event) {
     var choice = event.target.textContent
     localStorage.setItem('choice', choice);
