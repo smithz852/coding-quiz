@@ -6,9 +6,9 @@ N/A
 
 ## Usage
 
-Coding quiz deployed link:
+Coding quiz deployed link: https://smithz852.github.io/coding-quiz/
 
-GitHub Repo: 
+GitHub Repo: https://github.com/smithz852/coding-quiz.git
 
 The coding quiz is ready to use upon entering the webpage. The time will be listed in the upper right hand corner of the home page. It will begin decreasing as soon as the quiz is started. You can also access the high score page directly from the home page via the button in the left hand corner labeled "High Scores". Note that the high score page will be empty until the quiz is completed, and that it only tracks your scores for the session.
 
