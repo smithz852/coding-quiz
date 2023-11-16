@@ -1,6 +1,7 @@
 var startingMsg = document.querySelector('.startingMsg')
 var timeElement = document.querySelector('.timeElement')
 var quizButton = document.querySelector('#quizButton')
+var startDisplay = document.querySelector('.start-display')
 var quiz = document.querySelector('.quiz')
 var questionsEl = document.querySelector('.questions')
 var choicesEl = document.querySelector('.choices')
@@ -14,6 +15,8 @@ var wrong = document.querySelector('.wrong')
 var initialList = document.querySelector('.initialList')
 var scoreList = document.querySelector('.scoreList')
 var retakeButton = document.querySelector('#retakeButton')
+var homePage = document.querySelector('#homePage')
+var highScoreButton = document.querySelector('#scorePage')
 
 var highScoreArray = [];
 
@@ -62,9 +65,10 @@ var quizQuestions = [
   var questionIndex = 0
 
 function startQuiz() {
- startingMsg.classList.add('hide')
+  highScoreButton.classList.add('hide')
  quiz.classList.remove('hide')
 quizButton.classList.add('hide')
+startDisplay.classList.add('hide')
 if (time !== 0) {
   quizReset();
 }
@@ -154,6 +158,7 @@ function questionSubmit() {
 };
 
 function quizEnd() {
+  startingMsg.classList.add('hide')
   quiz.classList.add('hide');
   timeElement.classList.add('hide');
   enterScore(); 
@@ -198,17 +203,26 @@ console.log(highScoreList);
 var scoreContainer = ''
  
 for(var i = 0; i < highScoreArray.length; i += 2) {
-  listContainer += `<li>${highScoreArray[i]}</li>`;
+  listContainer += `<li class= 'scoreLi initialLi'>${highScoreArray[i]}</li>`;
     initialList.innerHTML = listContainer;
 }
 
 for(var i = 0; i < highScoreArray.length; i++) {
   if (i % 2 !== 0) {
-  scoreContainer += `<li>${highScoreArray[i]}</li>`;
+  scoreContainer += `<li class= 'scoreLi scoreLiAdj' style= 'text-align: end'>${highScoreArray[i]}</li>`;
     scoreList.innerHTML = scoreContainer;
   }
 }
 };
+
+function home() {
+  startingMsg.classList.remove('hide')
+ quiz.classList.add('hide')
+quizButton.classList.remove('hide')
+startDisplay.classList.remove('hide')
+timeElement.textContent = 'Time: 100'
+quizReset();
+}
 
   quizButton.addEventListener('click', function(event){
    event.preventDefault();
@@ -234,4 +248,11 @@ for(var i = 0; i < highScoreArray.length; i++) {
   event.preventDefault();
   startQuiz();
  });
+
+ homePage.addEventListener('click', function(event){
+  event.preventDefault();
+  home();
+ });
+
+ //add high score page button for home page
 
