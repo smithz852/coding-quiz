@@ -257,3 +257,64 @@ justify-items: end;
     padding: 20%;
     padding-top: 5%;
 }
+
+@media screen and (max-width: 768px) {
+    .questions {
+        font-size: 20pt;
+        font-weight: bold;
+    }
+
+    .choiceStyle {
+        font-size: 15pt;
+        max-width: 60%;
+    }
+
+    .flex-left {
+        display:block ;
+    }
+
+    .flex-score {
+        display: block;
+    }
+
+    .initials {
+        margin-top: 5%;
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+
+    .questions {
+        font-size: 18pt;
+        font-weight: bold;
+    }
+
+    .choiceStyle {
+        font-size: 13pt;
+        max-width: 80%;
+    }
+
+    .initials {
+        max-width: 90%;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+
+    h2 {
+        font-size: 20pt;
+    }
+
+    .flex-button {
+        display: block;
+    }
+
+    #retakeButton {
+        min-width: 100%;
+    }
+
+    #homePage {
+        margin-top: 5%;
+        min-width: 100%;
+    }
+  }
